@@ -44,7 +44,7 @@ python manage.py create_data
 
 Doc: https://docs.djangoproject.com/en/5.1/releases/5.1/
 
-Github: 
+Github: https://github.com/rg3915/django51
 
 
 ## Middleware de autenticação requerido por padrão
