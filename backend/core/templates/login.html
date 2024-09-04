@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>
+    <hgroup>
+      <h1>Login</h1>
+    </hgroup>
+  </header>
+
+  <form action="." method="POST">
+    {% csrf_token %}
+
+    <input id="id_username" name="username" class="form-control" type="text" autofocus />
+    <input id="id_password" name="password" class="form-control" type="password" />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock content %}

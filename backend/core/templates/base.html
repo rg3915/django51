@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="shortcut icon" href="https://www.djangoproject.com/favicon.ico">
+  <title>Django 5.1</title>
+
+  <!-- PicoCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+  <style>
+    /* Custom CSS for the active pagination link in dark mode */
+    .pagination .active {
+      font-weight: bold;
+      color: #121212;
+      background-color: #1e88e5;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+    }
+
+    /* Style pagination links for dark mode */
+    .pagination a {
+      color: #e0e0e0;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+    }
+
+    .pagination a:hover {
+      background-color: #333333;
+    }
+  </style>
+</head>
+<body class="container">
+  <a href="{% url 'index' %}">Home</a>
+
+  {% block content %}{% endblock content %}
+</body>
+</html>

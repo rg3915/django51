@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>
+    <hgroup>
+      <h1>
+        <a href="https://docs.djangoproject.com/en/5.1/releases/5.1/" target="_blank">Django 5.1</a>
+      </h1>
+    </hgroup>
+  </header>
+
+  <ul>
+    <li>
+      <a href="{% url 'about' %}">About</a>
+    </li>
+    <li>
+      <a href="{% url 'profile' %}">Profile</a>
+    </li>
+    <li>
+      <a href="{% url 'person_list' %}">Persons</a>
+    </li>
+  </ul>
+{% endblock content %}

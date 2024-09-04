@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <header>
+    <hgroup>
+      <h1>Profile</h1>
+    </hgroup>
+  </header>
+
+  <form action="{% url 'logout' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Sair</button>
+  </form>
+{% endblock content %}

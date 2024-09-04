@@ -1,0 +1,40 @@
+<!-- person_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <div>
+    <div>
+      <h1>Lista de Pessoas</h1>
+    </div>
+    <div>
+      <form action="." method="GET">
+          <input id="id_search" name="search" type="search" placeholder="Buscar..." />
+          <button type="submit">Buscar</button>
+        <div>
+          <a href=".">Limpar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+      <tr>
+        <td>{{ object.full_name }}</td>
+        <td>{{ object.email|default:'---' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% include "includes/pagination.html" %}
+
+{% endblock content %}

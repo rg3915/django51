@@ -1,0 +1,51 @@
+<!-- pagination.html -->
+<nav aria-label="Pagination">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="{% querystring page=1 %}">&laquo;</a></li>
+      <li><a href="{% querystring page=page_obj.previous_page_number %}">&lsaquo;</a></li>
+    {% endif %}
+
+    {% for pg in page_obj.paginator.page_range %}
+      {% if pg <= 3 or pg >= page_obj.paginator.num_pages|add:'-2' %}
+        <li class="{% if page_obj.number == pg %}active{% endif %}">
+          <a href="{% querystring page=pg %}">{{ pg }}</a>
+        </li>
+      {% elif pg >= page_obj.number|add:'-3' and pg <= page_obj.number|add:'3' %}
+        <li class="{% if page_obj.number == pg %}active{% endif %}">
+          <a href="{% querystring page=pg %}">{{ pg }}</a>
+        </li>
+      {% elif pg == page_obj.number|add:'-4' or pg == page_obj.number|add:'4' %}
+        <li><a href="#">...</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <li><a href="{% querystring page=page_obj.next_page_number %}">&rsaquo;</a></li>
+      <li><a href="{% querystring page=page_obj.paginator.num_pages %}">&raquo;</a></li>
+    {% endif %}
+  </ul>
+</nav>
+
+<p>{{ request.GET }}</p>
+<p>{{ page }} é a página definida pela variável page.</p>
+<p>{{ page.next_page_number }} page.next_page_number não existe.</p>
+<p>{{ page_obj }} page_obj existe.</p>
+
+<nav aria-label="Pagination">
+  <ul>
+    {% if page_obj.has_previous %}
+      <li>
+        <a href="{% querystring page=page|add:-1 %}">Previous page is {{ page|add:-1 }}</a>
+      </li>
+    {% endif %}
+
+    Current page is {{ page_obj.number }}
+
+    {% if page_obj.has_next %}
+      <li>
+        <a href="{% querystring page=page|add:1 %}">Next page is {{ page|add:1 }}</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
