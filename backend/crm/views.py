@@ -1,9 +1,12 @@
+from django.contrib.auth.decorators import login_not_required
 from django.db.models import Q
 from django.views.generic import ListView
+from django.utils.decorators import method_decorator
 
 from .models import Person
 
 
+@method_decorator(login_not_required, name='dispatch')
 class PersonListView(ListView):
     model = Person
     paginate_by = 10
